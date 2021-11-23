@@ -67,11 +67,6 @@ jobs:
       run: |
         ls /usr/share/miniconda/pkgs
 
-
-    - name: Display package caches 2
-      run: |
-        ls /home/runner/.conda/pkgs
-
     - name: Store build output as artifacts
       uses: actions/upload-artifact@v2
       with:
