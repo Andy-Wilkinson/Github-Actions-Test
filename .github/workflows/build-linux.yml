@@ -44,7 +44,7 @@ jobs:
         tree .
 
     - name: Store build output as artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: python-package
-          path: dist/*
+      uses: actions/upload-artifact@v2
+      with:
+        name: python-package
+        path: dist/*
