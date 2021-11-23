@@ -18,14 +18,30 @@ jobs:
       run: |
         # $CONDA is an environment variable pointing to the root of the miniconda directory
         echo $CONDA/bin >> $GITHUB_PATH
-        
-    - name: Install mamba
-      run: |
-        conda install mamba -n base -c conda-forge
+
+    - name: Cache conda dependencies
+      uses: actions/cache@v2
+      with:
+        key: conda-cache
+        path: /home/runner/.conda/pkgs
 
     - name: Conda Info
       run: |
+        echo $CONDA
         conda info
+
+    - name: Display package caches 1
+      run: |
+        tree /usr/share/miniconda/pkgs
+
+
+    - name: Display package caches 2
+      run: |
+        tree /home/runner/.conda/pkgs
+        
+    - name: Install mamba
+      run: |
+        conda install mamba -n base -c conda-forge    
 
     - name: Install development dependencies
       run: |
