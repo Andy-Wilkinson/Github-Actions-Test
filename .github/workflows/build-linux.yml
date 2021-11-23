@@ -18,7 +18,7 @@ jobs:
       run: |
         # $CONDA is an environment variable pointing to the root of the miniconda directory
         echo $CONDA/bin >> $GITHUB_PATH
-        echo "CONDA=$CONDA" >> $ GITHUB_ENV
+        echo "CONDA=$CONDA" >> $GITHUB_ENV
 
     - name: Cache conda dependencies
       uses: actions/cache@v2
