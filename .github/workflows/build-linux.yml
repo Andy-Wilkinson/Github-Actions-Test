@@ -23,7 +23,7 @@ jobs:
       uses: actions/cache@v2
       with:
         key: conda-cache
-        path: /home/runner/.conda/pkgs
+        path: $CONDA/pkgs
 
     - name: Conda Info
       run: |
@@ -61,11 +61,6 @@ jobs:
     - name: Display package caches 1
       run: |
         ls /usr/share/miniconda/pkgs
-
-
-    - name: Display package caches 2
-      run: |
-        ls /home/runner/.conda/pkgs
 
     - name: Store build output as artifacts
       uses: actions/upload-artifact@v2
