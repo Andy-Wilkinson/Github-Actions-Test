@@ -23,6 +23,10 @@ jobs:
       run: |
         conda install mamba -n base -c conda-forge
 
+    - name: Conda Info
+      run: |
+        conda info
+
     - name: Install development dependencies
       run: |
         mamba install flake8
