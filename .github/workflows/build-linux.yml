@@ -48,6 +48,11 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
+    - name: Unit test with PyTest
+      run: |
+        # TODO: Replace "code" with actual code directory name
+        pytest tests --doctest-modules --junitxml=junit/test-results.xml --cov=code --cov-report=xml --cov-report=html
+
     - name: Build the package
       run: |
         python setup.py sdist bdist_wheel
