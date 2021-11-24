@@ -25,13 +25,12 @@ jobs:
       env:
         cache-name: conda-cache
       with:
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/environment.yml') }}
         path: ${{ env.CONDA }}/pkgs
-
-    - name: Conda Info
-      run: |
-        echo $CONDA
-        conda info
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/environment.yml') }}
+        restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
 
     - name: Display package caches 1
       run: |
@@ -39,12 +38,7 @@ jobs:
         
     - name: Install mamba
       run: |
-        conda install mamba -n base -c conda-forge    
-
-    - name: Install development dependencies
-      run: |
-        mamba install flake8
-        mamba install pytest
+        conda install mamba -n base -c conda-forge
 
     - name: Lint with flake8
       run: |
