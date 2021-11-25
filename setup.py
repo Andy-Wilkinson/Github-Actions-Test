@@ -1,6 +1,6 @@
 import pathlib
 from setuptools import setup, find_packages
-# from chemmltoolkit.__version__ import __version__
+from ghactionstest.__version__ import __version__
 
 # The directory containing this file
 here = pathlib.Path(__file__).parent
@@ -11,7 +11,7 @@ readme = (here / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="ghactionstest",
-    # version=__version__,
+    version=__version__,
     description="A GitHub actions test package",
     long_description=readme,
     long_description_content_type="text/markdown",
