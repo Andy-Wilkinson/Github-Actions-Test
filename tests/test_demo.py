@@ -1,5 +1,5 @@
 import pytest
-from code.demo import add, subtract
+from ghactionstest.demo import add, subtract
 
 
 class TestDemo(object):

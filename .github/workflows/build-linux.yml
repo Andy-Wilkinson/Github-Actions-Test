@@ -50,8 +50,7 @@ jobs:
 
     - name: Unit test with PyTest
       run: |
-        # TODO: Replace "code" with actual code directory name
-        pytest tests --doctest-modules --junitxml=junit/test-results.xml --cov=code --cov-report=xml --cov-report=html
+        pytest tests --doctest-modules --junitxml=junit/test-results.xml --cov=ghactionstest --cov-report=xml --cov-report=html
 
     - name: Build the package
       run: |

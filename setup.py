@@ -10,7 +10,7 @@ readme = (here / "README.md").read_text()
 
 # This call to setup() does all the work
 setup(
-    name="aw-githubactions-test",
+    name="ghactionstest",
     # version=__version__,
     description="A GitHub actions test package",
     long_description=readme,
