@@ -48,6 +48,20 @@ jobs:
       run: |
         pytest tests --doctest-modules --junitxml=junit/test-results.xml --cov=ghactionstest --cov-report=xml --cov-report=html
 
+    - name: Upload Test Results
+        uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: pytest-results
+          path: junit/test-results.xml
+
+    - name: Upload Code Coverage Results
+        uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: pytest-cov-results
+          path: htmlcov/*
+
     - name: List files
       run: |
         tree .
