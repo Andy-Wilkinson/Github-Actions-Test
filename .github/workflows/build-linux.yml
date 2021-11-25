@@ -102,6 +102,12 @@ jobs:
       run: |
         conda install mamba -n base -c conda-forge
         mamba env update --file environment.yml --name base
+
+    - name: Update version number
+      run: |
+        cat chemmltoolkit/__version__.py
+        sed -i "s/'$/.dev$GITHUB_RUN_NUMBER'/g" chemmltoolkit/__version__.py
+        cat chemmltoolkit/__version__.py
       
     - name: Build the package
       run: |
