@@ -105,7 +105,6 @@ jobs:
 
     - name: Update version number
       run: |
-        cat ghactionstest/__version__.py
         sed -i "s/'$/.dev$GITHUB_RUN_NUMBER'/g" ghactionstest/__version__.py
         cat ghactionstest/__version__.py
       
