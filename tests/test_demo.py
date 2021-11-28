@@ -1,5 +1,5 @@
 import pytest
-from ghactionstest.demo import add, subtract
+from ghactionstest.demo import add, subtract, multiply
 
 
 class TestDemo(object):
@@ -18,3 +18,11 @@ class TestDemo(object):
     ])
     def test_subtract(self, a: int, b: int, result: int):
         assert subtract(a, b) == result
+
+    @pytest.mark.parametrize("a,b,result", [
+        (1, 2, 2),
+        (2, 2, 4),
+        (3, 2, 6)
+    ])
+    def test_multiply(self, a: int, b: int, result: int):
+        assert multiply(a, b) == result
